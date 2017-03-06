@@ -73,3 +73,28 @@ Reserved block count:     655351
 Reserved GDT blocks:      1020
 Reserved blocks uid:      0 (user root)
 Reserved blocks gid:      0 (group root)
+
+
+# Disable transparent hugepage support
+[root@xpand1 ~]# echo never > /sys/kernel/mm/transparent_hugepage/enabled
+[root@xpand1 ~]# echo never > /sys/kernel/mm/transparent_hugepage/defrag
+
+[root@xpand1 ~]# cat /sys/kernel/mm/transparent_hugepage/enabled
+always madvise [never]
+[root@xpand1 ~]# cat /sys/kernel/mm/transparent_hugepage/defrag
+always madvise [never]
+
+[root@xpand1 ~]# cat /etc/rc.local
+#!/bin/sh
+#
+# This script will be executed *after* all the other init scripts.
+# You can put your own initialization stuff in here if you don't
+# want to do the full Sys V style init stuff.
+
+touch /var/lock/subsys/local
+for i in `ls /sys/block/sd*/queue/scheduler`
+do
+echo "noop" > $i
+done
+echo never > /sys/kernel/mm/transparent_hugepage/enabled
+echo never > /sys/kernel/mm/transparent_hugepage/defrag
