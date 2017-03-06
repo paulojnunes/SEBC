@@ -1,14 +1,14 @@
 #Check vm.swappiness on all your nodes
 
-[root@xpand1 ~]# sysctl vm.swappiness=10
-[root@xpand1 ~]# cat /proc/sys/vm/swappiness
+[root@xpandsebc1 ~]# sysctl vm.swappiness=10
+[root@xpandsebc1 ~]# cat /proc/sys/vm/swappiness
 1
-[root@xpand1 ~]# nano /etc/sysctl.conf
-[root@xpand1 ~]# cat /etc/sysctl.conf | grep swappiness
+[root@xpandsebc1 ~]# nano /etc/sysctl.conf
+[root@xpandsebc1 ~]# cat /etc/sysctl.conf | grep swappiness
 vm.swappiness=1
 
 #Show the mount attributes of all volumes
-[root@xpand1 ~]$ mount -l
+[root@xpandsebc1 ~]$ mount -l
 /dev/sda1 on / type ext4 (rw)
 proc on /proc type proc (rw)
 sysfs on /sys type sysfs (rw)
@@ -19,7 +19,7 @@ tmpfs on /dev/shm type tmpfs (rw)
 none on /proc/sys/fs/binfmt_misc type binfmt_misc (rw)
 /dev/sdb1 on /mnt/resource type ext4 (rw)
 
-[root@xpand1 ~]# cat /etc/fstab
+[root@xpandsebc1 ~]# cat /etc/fstab
 
 #
 # /etc/fstab
@@ -40,7 +40,7 @@ proc                    /proc                   proc    defaults        0 0
 UUID=1c76d67a-e591-42f3-b95b-b8e26ddd5126                               /data                   ext4    defaults,noatime        1 2
 
 
-[root@xpand1 ~]# df -h
+[root@xpandsebc1 ~]# df -h
 Filesystem      Size  Used Avail Use% Mounted on
 /dev/sda1        20G  733M   18G   4% /
 tmpfs           6.9G     0  6.9G   0% /dev/shm
@@ -50,25 +50,25 @@ tmpfs           6.9G     0  6.9G   0% /dev/shm
 
 
 #Show the reserve space of any non-root, ext-based volumes
-[root@xpand1 ~]# tune2fs -l /dev/sda1 | grep Reserved
+[root@xpandsebc1 ~]# tune2fs -l /dev/sda1 | grep Reserved
 Reserved block count:     262144
 Reserved GDT blocks:      1022
 Reserved blocks uid:      0 (user root)
 Reserved blocks gid:      0 (group root)
 
-[root@xpand1 ~]# tune2fs -l /dev/sda2 | grep Reserved
+[root@xpandsebc1 ~]# tune2fs -l /dev/sda2 | grep Reserved
 Reserved block count:     393203
 Reserved GDT blocks:      1022
 Reserved blocks uid:      0 (user root)
 Reserved blocks gid:      0 (group root)
 
-[root@xpand1 ~]# tune2fs -l /dev/sdb1 | grep Reserved
+[root@xpandsebc1 ~]# tune2fs -l /dev/sdb1 | grep Reserved
 Reserved block count:     366988
 Reserved GDT blocks:      1022
 Reserved blocks uid:      0 (user root)
 Reserved blocks gid:      0 (group root)
 
-[root@xpand1 ~]# tune2fs -l /dev/sdc1 | grep Reserved
+[root@xpandsebc1 ~]# tune2fs -l /dev/sdc1 | grep Reserved
 Reserved block count:     655351
 Reserved GDT blocks:      1020
 Reserved blocks uid:      0 (user root)
@@ -76,15 +76,15 @@ Reserved blocks gid:      0 (group root)
 
 
 # Disable transparent hugepage support
-[root@xpand1 ~]# echo never > /sys/kernel/mm/transparent_hugepage/enabled
-[root@xpand1 ~]# echo never > /sys/kernel/mm/transparent_hugepage/defrag
+[root@xpandsebc1 ~]# echo never > /sys/kernel/mm/transparent_hugepage/enabled
+[root@xpandsebc1 ~]# echo never > /sys/kernel/mm/transparent_hugepage/defrag
 
-[root@xpand1 ~]# cat /sys/kernel/mm/transparent_hugepage/enabled
+[root@xpandsebc1 ~]# cat /sys/kernel/mm/transparent_hugepage/enabled
 always madvise [never]
-[root@xpand1 ~]# cat /sys/kernel/mm/transparent_hugepage/defrag
+[root@xpandsebc1 ~]# cat /sys/kernel/mm/transparent_hugepage/defrag
 always madvise [never]
 
-[root@xpand1 ~]# cat /etc/rc.local
+[root@xpandsebc1 ~]# cat /etc/rc.local
 #!/bin/sh
 #
 # This script will be executed *after* all the other init scripts.
@@ -101,12 +101,12 @@ echo never > /sys/kernel/mm/transparent_hugepage/defrag
 
 
 #List your network interface configuration
-[root@xpand1 ~]# cat /etc/sysctl.conf | grep ipv6
+[root@xpandsebc1 ~]# cat /etc/sysctl.conf | grep ipv6
 net.ipv6.conf.all.disable_ipv6 = 1
 net.ipv6.conf.default.disable_ipv6 = 1
 
-[root@xpand1 ~]# cat /etc/sysconfig/network
-HOSTNAME=xpand1
+[root@xpandsebc1 ~]#  cat /etc/sysconfig/network
+HOSTNAME=xpandsebc1.xpand.com
 NETWORKING=yes
 NETWORKING_IPV6=no
 IPV6INIT=no
@@ -141,6 +141,13 @@ lo        Link encap:Local Loopback
 #List forward and reverse host lookups using getent or nslookup
 [root@xpandsebc1 ~]# hostname --fqdn
 xpandsebc1.xpand.com
+
+
+[root@xpandsebc1 ~]#  cat /etc/sysconfig/network
+HOSTNAME=xpandsebc1.xpand.com
+NETWORKING=yes
+NETWORKING_IPV6=no
+IPV6INIT=no
 
 #Can't set up a DNS server properly. Will use /etc/hosts for now
 
