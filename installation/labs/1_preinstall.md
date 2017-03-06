@@ -98,3 +98,26 @@ echo "noop" > $i
 done
 echo never > /sys/kernel/mm/transparent_hugepage/enabled
 echo never > /sys/kernel/mm/transparent_hugepage/defrag
+
+
+#List your network interface configuration
+[root@xpand1 ~]# cat /etc/sysctl.conf | grep ipv6
+net.ipv6.conf.all.disable_ipv6 = 1
+net.ipv6.conf.default.disable_ipv6 = 1
+
+[root@xpand1 ~]# ifconfig
+eth0      Link encap:Ethernet  HWaddr 00:0D:3A:27:31:42
+          inet addr:10.0.0.4  Bcast:10.0.0.255  Mask:255.255.255.0
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:1912 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:2044 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000
+          RX bytes:446699 (436.2 KiB)  TX bytes:324364 (316.7 KiB)
+
+lo        Link encap:Local Loopback
+          inet addr:127.0.0.1  Mask:255.0.0.0
+          UP LOOPBACK RUNNING  MTU:65536  Metric:1
+          RX packets:0 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:0 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:0
+          RX bytes:0 (0.0 b)  TX bytes:0 (0.0 b)
