@@ -142,6 +142,7 @@ lo        Link encap:Local Loopback
 [root@xpandsebc1 ~]# hostname --fqdn
 xpandsebc1.xpand.com
 
+#Can't set up a DNS server properly. Will use /etc/hosts for now
 
 
 #Show the nscd service is running
