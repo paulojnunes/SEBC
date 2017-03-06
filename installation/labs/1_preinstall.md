@@ -150,6 +150,7 @@ NETWORKING_IPV6=no
 IPV6INIT=no
 
 #Can't set up a DNS server properly. Will use /etc/hosts for now
+#Still haven't configured Azure DNS Server
 
 
 #Show the nscd service is running
