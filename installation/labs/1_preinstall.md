@@ -105,6 +105,12 @@ echo never > /sys/kernel/mm/transparent_hugepage/defrag
 net.ipv6.conf.all.disable_ipv6 = 1
 net.ipv6.conf.default.disable_ipv6 = 1
 
+[root@xpand1 ~]# cat /etc/sysconfig/network
+HOSTNAME=xpand1
+NETWORKING=yes
+NETWORKING_IPV6=no
+IPV6INIT=no
+
 [root@xpand1 ~]# ifconfig
 eth0      Link encap:Ethernet  HWaddr 00:0D:3A:27:31:42
           inet addr:10.0.0.4  Bcast:10.0.0.255  Mask:255.255.255.0
@@ -121,3 +127,27 @@ lo        Link encap:Local Loopback
           TX packets:0 errors:0 dropped:0 overruns:0 carrier:0
           collisions:0 txqueuelen:0
           RX bytes:0 (0.0 b)  TX bytes:0 (0.0 b)
+
+
+[root@xpand1 ~]# cat /etc/hosts
+127.0.0.1   localhost localhost.localdomain localhost4 localhost4.localdomain4
+::1         localhost localhost.localdomain localhost6 localhost6.localdomain6
+10.0.0.4 xpandsebc1.xpand.com xpandsebc1
+10.0.0.5 xpandsebc2.xpand.com xpandsebc2
+10.0.0.6 xpandsebc3.xpand.com xpandsebc3
+10.0.0.7 xpandsebc4.xpand.com xpandsebc4
+10.0.0.8 xpandsebc5.xpand.com xpandsebc5
+
+#List forward and reverse host lookups using getent or nslookup
+[root@xpandsebc1 ~]# hostname --fqdn
+xpandsebc1.xpand.com
+
+
+
+#Show the nscd service is running
+[root@xpandsebc1 ~]# service nscd status
+nscd (pid 1486) is running...
+
+#Show the ntpd service is running
+[root@xpandsebc1 ~]# service ntpd status
+ntpd (pid  1565) is running...
