@@ -8,16 +8,16 @@
 vm.swappiness=1
 
 #Show the mount attributes of all volumes
-[root@xpand1 ~]# mount -l
+[root@xpand1 ~]$ mount -l
 /dev/sda1 on / type ext4 (rw)
 proc on /proc type proc (rw)
 sysfs on /sys type sysfs (rw)
 devpts on /dev/pts type devpts (rw,gid=5,mode=620)
 tmpfs on /dev/shm type tmpfs (rw)
 /dev/sda2 on /var type ext4 (rw)
+/dev/sdc1 on /data type ext4 (rw,noatime)
 none on /proc/sys/fs/binfmt_misc type binfmt_misc (rw)
 /dev/sdb1 on /mnt/resource type ext4 (rw)
-/dev/sdc1 on /data type ext4 (rw)
 
 [root@xpand1 ~]# cat /etc/fstab
 
@@ -37,7 +37,7 @@ proc                    /proc                   proc    defaults        0 0
 
 
 #Hadoop Data
-UUID=1c76d67a-e591-42f3-b95b-b8e26ddd5126 /dev/sdc1                               /data                   ext4    defaults,noatime        1 2
+UUID=1c76d67a-e591-42f3-b95b-b8e26ddd5126                               /data                   ext4    defaults,noatime        1 2
 
 
 [root@xpand1 ~]# df -h
@@ -45,8 +45,8 @@ Filesystem      Size  Used Avail Use% Mounted on
 /dev/sda1        20G  733M   18G   4% /
 tmpfs           6.9G     0  6.9G   0% /dev/shm
 /dev/sda2        30G  116M   28G   1% /var
-/dev/sdb1        28G  2.1G   24G   8% /mnt/resource
 /dev/sdc1        50G   52M   47G   1% /data
+/dev/sdb1        28G  2.1G   24G   8% /mnt/resource
 
 
 #Show the reserve space of any non-root, ext-based volumes
