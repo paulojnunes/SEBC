@@ -8,10 +8,10 @@ HADOOP=/opt/cloudera/parcels/CDH/bin
 echo Testing loop started on `date`
 
 # Mapper containers
-for i in 1 2 4    
+for i in 2 4 6 9
 do
    # Reducer containers
-   for j in 2 4 6 
+   for j in 2 4 6 9
    do                 
       # Container memory
       for k in 1024 2048 4096
