@@ -453,3 +453,113 @@ Found 2 items
 Found 2 items
 -rw-r--r--   3 pjdn pjdn          0 2017-03-07 11:35 /paulojnunes_destination/paulojnunes/_SUCCESS
 -rw-r--r--   3 pjdn pjdn  524288000 2017-03-07 11:35 /paulojnunes_destination/paulojnunes/part-m-00000
+
+
+
+#FSCK HDFS directories
+#SOURCE
+[pjdn@xpandsebc1 ~]$ hdfs fsck /paulojnunes -files -blocks
+Connecting to namenode via http://xpandsebc2.xpand.com:50070
+FSCK started by pjdn (auth:SIMPLE) from /10.0.0.4 for path /paulojnunes at Tue Mar 07 11:44:02 UTC 2017
+/paulojnunes <dir>
+/paulojnunes/_SUCCESS 0 bytes, 0 block(s):  OK
+
+/paulojnunes/part-m-00000 524288000 bytes, 4 block(s):  OK
+0. BP-1670984582-10.0.0.5-1488822963947:blk_1073742667_1843 len=134217728 Live_repl=3
+1. BP-1670984582-10.0.0.5-1488822963947:blk_1073742668_1844 len=134217728 Live_repl=3
+2. BP-1670984582-10.0.0.5-1488822963947:blk_1073742669_1845 len=134217728 Live_repl=3
+3. BP-1670984582-10.0.0.5-1488822963947:blk_1073742670_1846 len=121634816 Live_repl=3
+
+Status: HEALTHY
+ Total size:    524288000 B
+ Total dirs:    1
+ Total files:   2
+ Total symlinks:                0
+ Total blocks (validated):      4 (avg. block size 131072000 B)
+ Minimally replicated blocks:   4 (100.0 %)
+ Over-replicated blocks:        0 (0.0 %)
+ Under-replicated blocks:       0 (0.0 %)
+ Mis-replicated blocks:         0 (0.0 %)
+ Default replication factor:    3
+ Average block replication:     3.0
+ Corrupt blocks:                0
+ Missing replicas:              0 (0.0 %)
+ Number of data-nodes:          3
+ Number of racks:               1
+FSCK ended at Tue Mar 07 11:44:02 UTC 2017 in 2 milliseconds
+
+
+The filesystem under path '/paulojnunes' is HEALTHY
+
+
+#Intra-cluster distcp destination
+
+[pjdn@xpandsebc1 ~]$ hdfs fsck /paulojnunes_destination -files -blocks
+Connecting to namenode via http://xpandsebc2.xpand.com:50070
+FSCK started by pjdn (auth:SIMPLE) from /10.0.0.4 for path /paulojnunes_destination at Tue Mar 07 11:44:59 UTC 2017
+/paulojnunes_destination <dir>
+/paulojnunes_destination/paulojnunes <dir>
+/paulojnunes_destination/paulojnunes/_SUCCESS 0 bytes, 0 block(s):  OK
+
+/paulojnunes_destination/paulojnunes/part-m-00000 524288000 bytes, 4 block(s):  OK
+0. BP-1670984582-10.0.0.5-1488822963947:blk_1073742769_1945 len=134217728 Live_repl=3
+1. BP-1670984582-10.0.0.5-1488822963947:blk_1073742770_1946 len=134217728 Live_repl=3
+2. BP-1670984582-10.0.0.5-1488822963947:blk_1073742771_1947 len=134217728 Live_repl=3
+3. BP-1670984582-10.0.0.5-1488822963947:blk_1073742772_1948 len=121634816 Live_repl=3
+
+Status: HEALTHY
+ Total size:    524288000 B
+ Total dirs:    2
+ Total files:   2
+ Total symlinks:                0
+ Total blocks (validated):      4 (avg. block size 131072000 B)
+ Minimally replicated blocks:   4 (100.0 %)
+ Over-replicated blocks:        0 (0.0 %)
+ Under-replicated blocks:       0 (0.0 %)
+ Mis-replicated blocks:         0 (0.0 %)
+ Default replication factor:    3
+ Average block replication:     3.0
+ Corrupt blocks:                0
+ Missing replicas:              0 (0.0 %)
+ Number of data-nodes:          3
+ Number of racks:               1
+FSCK ended at Tue Mar 07 11:44:59 UTC 2017 in 1 milliseconds
+
+
+The filesystem under path '/paulojnunes_destination' is HEALTHY
+
+
+#BDR destination
+[pjdn@xpandsebc1 ~]$ hdfs fsck /paulojnunes_bdr_destination -files -blocks
+Connecting to namenode via http://xpandsebc2.xpand.com:50070
+FSCK started by pjdn (auth:SIMPLE) from /10.0.0.4 for path /paulojnunes_bdr_destination at Tue Mar 07 11:45:27 UTC 2017
+/paulojnunes_bdr_destination <dir>
+/paulojnunes_bdr_destination/paulojnunes <dir>
+/paulojnunes_bdr_destination/paulojnunes/_SUCCESS 0 bytes, 0 block(s):  OK
+
+/paulojnunes_bdr_destination/paulojnunes/part-m-00000 524288000 bytes, 4 block(s):  OK
+0. BP-1670984582-10.0.0.5-1488822963947:blk_1073742816_1992 len=134217728 Live_repl=3
+1. BP-1670984582-10.0.0.5-1488822963947:blk_1073742817_1993 len=134217728 Live_repl=3
+2. BP-1670984582-10.0.0.5-1488822963947:blk_1073742818_1994 len=134217728 Live_repl=3
+3. BP-1670984582-10.0.0.5-1488822963947:blk_1073742819_1995 len=121634816 Live_repl=3
+
+Status: HEALTHY
+ Total size:    524288000 B
+ Total dirs:    2
+ Total files:   2
+ Total symlinks:                0
+ Total blocks (validated):      4 (avg. block size 131072000 B)
+ Minimally replicated blocks:   4 (100.0 %)
+ Over-replicated blocks:        0 (0.0 %)
+ Under-replicated blocks:       0 (0.0 %)
+ Mis-replicated blocks:         0 (0.0 %)
+ Default replication factor:    3
+ Average block replication:     3.0
+ Corrupt blocks:                0
+ Missing replicas:              0 (0.0 %)
+ Number of data-nodes:          3
+ Number of racks:               1
+FSCK ended at Tue Mar 07 11:45:27 UTC 2017 in 1 milliseconds
+
+
+The filesystem under path '/paulojnunes_bdr_destination' is HEALTHY
