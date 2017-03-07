@@ -1,0 +1,1 @@
+yarn jar /opt/cloudera/parcels/CDH/lib/hadoop-mapreduce/hadoop-mapreduce-examples.jar terasort -Dmapred.map.tasks=4 terasort-input terasort-output
