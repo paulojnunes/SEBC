@@ -149,8 +149,10 @@ NETWORKING=yes
 NETWORKING_IPV6=no
 IPV6INIT=no
 
-#Can't set up a DNS server properly. Will use /etc/hosts for now
-#Still haven't configured Azure DNS Server
+#Using /etc/hosts
+#Using azure
+[root@xpandsebc1 ~]# getent hosts xpandsebc1.xpand.com
+10.0.0.4        xpandsebc1.xpand.com xpandsebc1
 
 
 #Show the nscd service is running
