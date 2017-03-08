@@ -2,13 +2,13 @@
 
 ## Report latest available API version
 ```
-[root@xpandsebc1 ~]# curl -u paulojnunes:cloudera -X GET http://xpandsebc1.westeurope.cloudapp.azure.com:7180/api/vesion
+[root@xpandsebc1 ~]# curl -u paulojnunes:cloudera -X GET http://xpandsebc1.westeurope.cloudapp.azure.com:7180/api/version
 v13
 ```
 
 ## Report CM Version
 ```
-[root@xpandsebc1 ~]# curl -u paulojnunes:cloudera -X GET http://xpandsebc1.westeurope.cloudapp.azure.com:7180/api/v13/cm/sion
+[root@xpandsebc1 ~]# curl -u paulojnunes:cloudera -X GET http://xpandsebc1.westeurope.cloudapp.azure.com:7180/api/v13/cm/version
 {
   "version" : "5.8.3",
   "buildUser" : "jenkins",
@@ -38,6 +38,11 @@ v13
 ## Report the DB server in use by CM
 >**Note**
 >Done after upgrade because of api v13 limitation
+>Using api v15 for this one
 ```
-[root@xpandsebc1 ~]# curl -u paulojnunes:cloudera -X GET http://xpandsebc1.westeurope.cloudapp.azure.com:7180/api/v14/cm/scmDbInfo
+[root@xpandsebc1 ~]# curl -u paulojnunes:cloudera -X GET http://xpandsebc1.westeurope.cloudapp.azure.com:7180/api/v15/cm/scmDbInfo
+{
+  "scmDbType" : "MYSQL",
+  "embeddedDbUsed" : false
+}
 ```
