@@ -2,7 +2,7 @@
 
 ### First steps
 
-To use `ansible`, I installed the `epel` repo on the edge node:
+To use `ansible`, I installed the `epel` repo on the first host:
 ```
 yum install epel-release
 ```
@@ -12,7 +12,7 @@ Installed `ansible` to interact with multiple hosts:
 yum install -y ansible
 ```
 
-SSH Login Without Password from the edge node to the rest of the nodes
+SSH Login Without Password from the first host to the rest of the nodes
 ```
 [root@challengesebc1 ~]# ssh-keygen
 [root@challengesebc1 ~]# ssh-copy-id -i ~/.ssh/id_rsa.pub challengesebc2
