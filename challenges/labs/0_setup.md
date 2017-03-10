@@ -31,11 +31,11 @@ challengesebc5
 ```
 
 
-### Instances
+### Cloud Provider
 
 ```
 Cloud Provider: Azure
-Region: West Europe
+Region: North Europe
 
 ```
 
