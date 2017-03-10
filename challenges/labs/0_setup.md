@@ -42,11 +42,11 @@ Region: West Europe
 ### Public ip addresses and hostnames
 
 ```
-52.169.116.255 challengesebc1.westeurope.cloudapp.azure.com
-52.169.117.44  challengesebc2.westeurope.cloudapp.azure.com
-52.169.118.176 challengesebc3.westeurope.cloudapp.azure.com
-52.169.114.252 challengesebc4.westeurope.cloudapp.azure.com
-52.169.117.249 challengesebc5.westeurope.cloudapp.azure.com
+52.169.116.255 challengesebc1.northeurope.cloudapp.azure.com
+52.169.117.44  challengesebc2.northeurope.cloudapp.azure.com
+52.169.118.176 challengesebc3.northeurope.cloudapp.azure.com
+52.169.114.252 challengesebc4.northeurope.cloudapp.azure.com
+52.169.117.249 challengesebc5.northeurope.cloudapp.azure.com
 ```
 
 ### Private ip addresses and hostnames
