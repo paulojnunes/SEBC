@@ -21,7 +21,7 @@ SSH Login Without Password from the first host to the rest of the nodes
 [root@challengesebc1 ~]# ssh-copy-id -i ~/.ssh/id_rsa.pub challengesebc5
 ```
 
-In the edge node, added the following to /etc/ansible/hosts:
+In the first host, added the following to /etc/ansible/hosts:
 ```
 localhost ansible_connection=local
 challengesebc2
